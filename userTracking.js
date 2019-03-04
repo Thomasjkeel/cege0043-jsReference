@@ -24,7 +24,7 @@ function showPosition(position){
 
 function getDistance(){
     // alert('getting distance');
-    navigator.geolocation.getCurrentPosition(getDistanceFromPoint);
+    // navigator.geolocation.getCurrentPosition(getDistanceFromPoint);
     navigator.geolocation.getCurrentPosition(getDistanceFromMultiplePoints);
 }
 
@@ -65,6 +65,7 @@ function getDistanceFromMultiplePoints(position) {
       minDist = distance;
       closestQuake = obj.properties.place;
     }
+    
   }
-  alert("Earthquakes: " + closestQuake + " is: " + minDist + " kilometers away");
+  console.log("Earthquake: " + closestQuake + " is: " + minDist + " kilometers away");
 }
