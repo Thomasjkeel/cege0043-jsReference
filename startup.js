@@ -8,5 +8,6 @@ function trackAndCircle() {
 function startup() {
   document.addEventListener('DOMContentLoaded', function() {
     trackAndCircle ();
+    getPort();
   }, false);
 }
