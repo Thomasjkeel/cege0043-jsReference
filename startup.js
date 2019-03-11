@@ -1,7 +1,12 @@
+function loadW3HTML() {
+  w3.includeHTML();
+}
+
 function trackAndCircle() {
   trackLocation();
   addPointLinePoly();
   getEarthquakes();
+  loadW3HTML();
   // NB: all javascript when the webpage is loaded
 }
 
