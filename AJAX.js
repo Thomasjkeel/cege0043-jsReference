@@ -3,9 +3,10 @@ var xhrNode;
 function callDivNodeJSChange() {
     xhrNode = new XMLHttpRequest();
     var filename = document.getElementById("filename").value;
+    console.log(filename);
     var url = "http://developer.cege.ucl.ac.uk:" + httpPortNumber;
     console.log("port number ==", httpPortNumber);
-    xhrNode.open("GET", filename, true);
+    xhrNode.open("GET", url + filename, true);
     xhrNode.onreadystatechange = processDivNodeJSChange;
     xhrNode.send();
 }
