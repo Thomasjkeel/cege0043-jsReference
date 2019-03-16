@@ -2,11 +2,10 @@ var xhrNode;
 
 function callDivNodeJSChange() {
     xhrNode = new XMLHttpRequest();
-    var filename = document.getElementById("filename").value;
+    // var filename = document.getElementById("filename").value;
     var url = "http://developer.cege.ucl.ac.uk:" + httpPortNumber;
-    // console.log("port number ==", httpPortNumber);
     console.log(url + '/' + filename);
-    xhrNode.open("GET", url + '/' + filename, true);
+    xhrNode.open("GET", httpPortNumber, true); // url + '/' + filename
     xhrNode.onreadystatechange = processDivNodeJSChange;
     xhrNode.send();
 }
