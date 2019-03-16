@@ -1,5 +1,6 @@
 var client;
-var httpPortNumber;
+var formclient;
+// var httpPortNumber;
 var earthquakes;
 var earthquakelayer;
 
@@ -29,6 +30,22 @@ function addPointLinePoly() {
           fillColor:'#f03',
           fillOpacity:0.5
     }).addTo(mymap).bindPopup("I am a polygon.");
+}
+
+
+function getFormData() {
+    formclient = new XMLHttpRequest();
+    // make client request
+    var url = 'http://developer.cege.ucl.ac.uk:' + httpPortNumber + '/getFormData/' + httpPortNumber;
+    formclient.open('GET', url);
+    formclient.onreadystatechange = formResponse;
+    formclient.send();
+}
+
+function formResponse() {
+    if (formclient.readyState == 4) {
+        document.getElementById("dataUploadResult").innerHTML = formclient.responseText;
+    }
 }
 
 function getEarthquakes() {

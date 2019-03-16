@@ -5,7 +5,8 @@ function loadW3HTML() {
 function trackAndCircle() {
   trackLocation();
   addPointLinePoly();
-  getEarthquakes();
+  // getEarthquakes();
+  getFormData();
   loadW3HTML();
   // NB: all javascript when the webpage is loaded
 }
