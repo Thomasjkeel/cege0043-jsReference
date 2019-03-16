@@ -1,4 +1,5 @@
 var client;
+var httpPortNumber;
 var earthquakes;
 var earthquakelayer;
 
@@ -36,7 +37,7 @@ function getEarthquakes() {
     client.open('GET', 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson');
     client.onreadystatechange = earthquakeResponse; // earthquakeRepsonse is a method
     client.send();
-
+}
 // create code to wait for response from the server and process it when recieved
 function earthquakeResponse() {
     // listener
@@ -69,5 +70,4 @@ function loadEarthquakelayer(earthquakedata)
     }).addTo(mymap);
     // re-fit the bounds
     mymap.fitBounds(earthquakelayer.getBounds());
-}
 }
