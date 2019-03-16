@@ -1,6 +1,5 @@
 var client;
 var formclient;
-// var httpPortNumber;
 var earthquakes;
 var earthquakelayer;
 
@@ -37,14 +36,15 @@ function getFormData() {
     formclient = new XMLHttpRequest();
     // make client request
     var url = 'http://developer.cege.ucl.ac.uk:' + httpPortNumber + '/getFormData/' + httpPortNumber;
-    formclient.open('GET', url);
+    formclient.open('GET', url, true);
     formclient.onreadystatechange = formResponse;
     formclient.send();
 }
 
 function formResponse() {
     if (formclient.readyState == 4) {
-        document.getElementById("dataUploadResult").innerHTML = formclient.responseText;
+        console.log(formclient.responseText)
+        document.getElementById("uploadedFormResults").innerHTML = formclient.responseText;
     }
 }
 
