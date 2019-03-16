@@ -29,6 +29,7 @@ var client;
 function processData(postString) {
     client = new XMLHttpRequest();
     postString = postString + "&port_id=" + httpPortNumber;
+    console.log(postString)
     var url = 'http://developer.cege.ucl.ac.uk:' + httpPortNumber + '/uploadData';
     client.open('POST', url, true);
     client.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
