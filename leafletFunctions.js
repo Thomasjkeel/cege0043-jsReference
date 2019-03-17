@@ -35,7 +35,7 @@ function addPointLinePoly() {
 function getFormData() {
     formclient = new XMLHttpRequest();
     // make client request
-    console.log(httpPortNumber);
+    console.log("current port number", httpPortNumber);
     var url = 'http://developer.cege.ucl.ac.uk:' + httpPortNumber + '/getFormData/' + httpPortNumber;
     formclient.open('GET', url, true);
     formclient.onreadystatechange = formResponse;
@@ -45,7 +45,7 @@ function getFormData() {
 function formResponse() {
     if (formclient.readyState == 4) {
         console.log(formclient.responseText)
-        document.getElementById("uploadedFormResults").innerHTML = formclient.responseText;
+        document.getElementById("ajaxtest").innerHTML = formclient.responseText;
     }
 }
 
