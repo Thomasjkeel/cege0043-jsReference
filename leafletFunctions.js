@@ -57,7 +57,7 @@ function formResponse() {
 
 function loadFormData(formData) {
     // convert the text received from the server to JSON
-    console.log(formData);
+    // console.log(formData);
     var formJSON = JSON.parse(formData);
     // load the geoJSON layer
     formLayer = L.geoJson(formJSON, {
@@ -150,4 +150,28 @@ function loadEarthquakelayer(earthquakedata)
     }).addTo(mymap);
     // re-fit the bounds
     mymap.fitBounds(earthquakelayer.getBounds());
+}
+
+
+function closestFormPoint() {
+    // take the leaflet formdata layer and find nearest
+    var minDistance = 100000000000000;
+    var closestFormPoint = 0;
+    // use warren street for now
+    var userlat = 51.524048;
+    var userlng = -0.139924;
+    formLayer.eachLayer(function(layer) {
+        var distance = calculateDistance(userlat, userlng, layer.getLatLng().lat, layer.getLatLng().lng, 'K');
+        if (distance < minDistance) {
+            minDistance = distance;
+            closestFormPoint = layer.feature.properties.id;
+        }
+    });
+
+    // show popup to nearest Point
+    formLayer.eachLayer(function(layer) {
+        if (layer.feature.properties.id == closestFormPoint) {
+            layer.openPopup();
+        }
+    });
 }
