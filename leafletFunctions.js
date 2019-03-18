@@ -39,7 +39,7 @@ function getFormData() {
     console.log("current port number", httpPortNumber);
     var url = 'http://developer.cege.ucl.ac.uk:' + httpPortNumber
     //  + '/getFormData/' + httpPortNumber;
-    url = url + '/getGeoJSON/formdata/geom/' + httpPortNumber;
+    url = url + '/getGeoJSON/london_poi/geom/';
     console.log(url);
     formclient.open('GET', url, true);
     formclient.onreadystatechange = formResponse;
