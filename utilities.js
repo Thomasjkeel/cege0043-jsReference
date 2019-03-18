@@ -1,7 +1,7 @@
 var httpPortNumber;
 var httpsPortNumber;
 
-function getPort() {
+function getPort(_callback) {
   var xhr = new XMLHttpRequest();
   xhr.addEventListener("load", function () {
     var parser = new DOMParser();
@@ -9,6 +9,7 @@ function getPort() {
     httpPortNumber = doc.getElementsByTagName("node-port-http").item(0).textContent;
     httpsPortNumber = doc.getElementsByTagName("node-port-https").item(0).textContent;
     alert("Port : " + httpPortNumber);
+    _callback();
   });
 
   // depending on whethere we are on browser or phone
